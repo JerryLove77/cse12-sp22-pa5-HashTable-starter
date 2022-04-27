@@ -1,6 +1,4 @@
-/**
- * TODO: Complete the solution for Sanctuary
- */
+
 import java.util.HashMap;
 import java.util.Set;
 

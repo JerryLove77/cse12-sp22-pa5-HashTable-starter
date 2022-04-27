@@ -1,6 +1,3 @@
-/**
- * TODO: Complete the solution for Course
- */
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;

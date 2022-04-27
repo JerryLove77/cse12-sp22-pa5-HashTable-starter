@@ -1,6 +1,4 @@
-/**
- * TODO: Complete the solution for Student
- */
+
 import java.util.Objects;
 
 public class Student implements Comparable<Student> {

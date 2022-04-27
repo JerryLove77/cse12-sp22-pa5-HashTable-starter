@@ -1,14 +1,24 @@
+/**
+ * Author: Jianwei Gong
+ * Email: jig184@ucsd.edu
+ * 
+ * This is the PA5 tester file that offered to CSE 12 students. It contains 
+ * all the public test cases that are the same as the ones used in Autograder.
+ */
 import java.util.*;
 import static org.junit.Assert.*;
 import org.junit.*;
 
+// This class contains a subset of unit test cases for PA5. It ensures the 
+// basic functionalities of the Course, Sanctuary and Student class.
 public class PublicTester {
 
     // Student class
     // Test constructor with valid argument
     @Test
     public void testStudentConstructor() {
-        Student student = new Student("Test", "Student", "A12345678");
+        Student student = new Student("Test", "Student", 
+            "A12345678");
         assertEquals("Test", student.getFirstName());
         assertEquals("Student", student.getLastName());
         assertEquals("A12345678", student.getPID());
@@ -29,15 +39,17 @@ public class PublicTester {
     public void testHashValueSame() {
         Student student1 = new Student(new String("Test"), 
             new String("Student"), new String("A12345678"));
-        assertEquals(student1.hashCode(), Objects.hash(new String("Test"), 
-            new String("Student"), new String("A12345678")));
+        assertEquals(student1.hashCode(), Objects.hash(new String(
+            "Test"), new String("Student"), 
+            new String("A12345678")));
     }
 
     // Course class
     // Test constructor with valid argument
     @Test
     public void testCourseConstructor() throws NoSuchFieldException {
-        Course course = new Course("CSE", "12", "Data Structure", 100);
+        Course course = new Course("CSE", "12", 
+            "Data Structure", 100);
         assertEquals("CSE", course.getDepartment());
         assertEquals("12", course.getNumber());
         assertEquals("Data Structure", course.getDescription());
@@ -47,9 +59,11 @@ public class PublicTester {
     // Enroll a new non-null student
     @Test
     public void testEnrollNewStudent() {
-        Course course = new Course("CSE", "12", "Data Structure", 100);
+        Course course = new Course("CSE", "12", 
+            "Data Structure", 100);
         course.enrolled = new HashSet<>();
-        Student stu = new Student("Whales", "Ocean", "A123");
+        Student stu = new Student("Whales", "Ocean", 
+            "A123");
         assertTrue(course.enroll(stu));
         assertTrue(course.enrolled.contains(stu));
         assertEquals(1, course.enrolled.size());
@@ -58,8 +72,10 @@ public class PublicTester {
     // Unenroll an existing student
     @Test
     public void testUnenrollExistingStudent() {
-        Course course = new Course("CSE", "12", "Data Structure", 100);
-        Student stu = new Student("Whales", "Ocean", "A123");
+        Course course = new Course("CSE", "12", 
+            "Data Structure", 100);
+        Student stu = new Student("Whales", "Ocean", 
+            "A123");
 
         course.enrolled = new HashSet<>();
         course.enrolled.add(stu);
@@ -72,10 +88,12 @@ public class PublicTester {
     // Test isFull with a full roster
     @Test
     public void testIsFull() {
-        Course course = new Course("CSE", "12", "Data Structure", 3);
+        Course course = new Course("CSE", "12", 
+            "Data Structure", 3);
         course.enrolled = new HashSet<>();
         for(int i=0; i<3; i++) {
-            course.enrolled.add(new Student("Whales"+i, "Ocean", "A123"));
+            course.enrolled.add(new Student("Whales"+i, "Ocean", 
+                "A123"));
         }
 
         assertTrue(course.isFull());
@@ -84,7 +102,8 @@ public class PublicTester {
     // Get a descriptive string from a normal course
     @Test
     public void testToString() {
-        Course course = new Course("CSE", "12", "Data Structure", 100);
+        Course course = new Course("CSE", "12", 
+            "Data Structure", 100);
         assertEquals("CSE 12 [100]\nData Structure", course.toString());
     }
 
