@@ -28,6 +28,9 @@ public class CustomTester {
      */
     @Test
     public void testEquals() {
+        Student a = new Student("Jianrui","Zhang","A16878087");
+        Student b = new Student("Jerry","Zhang","A16878087");
+        assertTrue("They are not same",!a.equals(b));
 
     }
 
