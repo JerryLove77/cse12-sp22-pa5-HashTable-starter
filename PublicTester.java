@@ -31,7 +31,9 @@ public class PublicTester {
             new String("Student"), new String("A12345678"));
         Student student2 = new Student(new String("Test"), 
             new String("Student"), new String("A12345678"));
+            assertEquals(student1.getFirstName(), "Test");
         assertTrue(student1.equals(student2));
+
     }
 
     // Test hashing function
