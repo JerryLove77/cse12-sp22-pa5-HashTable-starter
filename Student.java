@@ -6,18 +6,23 @@ public class Student implements Comparable<Student> {
     private final String lastName;
     private final String PID;
 
-    public Student(String firstName, String lastName, String PID) {}
+    public Student(String firstName, String lastName, String PID) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.PID = PID;
+
+    }
 
     public String getLastName() {
-        return null;
+        return this.lastName;
     }
 
     public String getFirstName() {
-        return null;
+        return this.firstName;
     }
 
     public String getPID() {
-        return null;
+        return this.PID;
     }
 
     @Override
