@@ -30,18 +30,40 @@ public class Sanctuary {
     }
     
     public int getTotalAnimals() {
-        return 0;
+        int count = 0;
+        Set<String> aniset = sanctuary.keySet();
+        for(String animal : aniset){
+            count += sanctuary.get(animal);
+        }
+        return count;
     }
     
     public int getTotalSpecies() {
-        return 0;
+        int count = 0;
+        Set<String> speSet = sanctuary.keySet();
+        for(String species : speSet){
+            count += sanctuary.get(species);
+        }
+        return count;
     }
 
     public int rescue(String species, int num) {
+        if(species == null){
+            throw new IllegalArgumentException();
+        }
+        if(num <= 0){
+            throw new IllegalArgumentException();
+        }
         return 0;
     }
 
     public void release(String species, int num) {
+        if(species == null){
+            throw new IllegalArgumentException();
+        }
+        if(num <= 0){
+            throw new IllegalArgumentException();
+        }
 
     }
 }
