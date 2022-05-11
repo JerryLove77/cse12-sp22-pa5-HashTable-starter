@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
-
+import java.util.Iterator;
 import org.junit.runner.Describable;
 
 public class Course {
@@ -10,14 +10,15 @@ public class Course {
     private final String department;
     private final String number;
     private final String description;
+    private final String formatting = "%s %s [%d]\n%s";
 
     public Course(String department, String number, String description, 
         int capacity){
-            if(department == null|| number == null|| description == null){
+            if(capacity < 0){
                 throw new IllegalArgumentException();
             }
-
-            if(capacity < 0){
+            if(department == null|| number == null
+            || description == null){
                 throw new IllegalArgumentException();
             }
 
@@ -44,25 +45,48 @@ public class Course {
     }
 
     public boolean enroll(Student student) {
-        return false;
+        if(student == null) {
+            throw new IllegalArgumentException();
+        }
+        if(isFull() == false) {
+            enrolled.add(student);
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 
     public boolean unenroll(Student student) {
-        return false;
+        if(student == null){
+            throw new IllegalArgumentException(); 
+        }
+        if(enrolled.contains(student)){
+            enrolled.remove(student);
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 
-    public void cancel() {}
+    public void cancel() {
+        enrolled.clear();
+    }
 
     public boolean isFull() {
+        if(capacity == getEnrolledCount()) {
+            return true;
+        }
         return false;
     }
 
     public int getEnrolledCount() {
-        return 0;
+        return enrolled.size();
     }
 
     public int getAvailableSeats() {
-        return 0;
+        return capacity - enrolled.size();
     }
 
     public HashSet<Student> getStudents() {
@@ -70,11 +94,18 @@ public class Course {
     }
 
     public ArrayList<Student> getRoster() {
-        return null;
+        ArrayList<Student> enrolledarrlist = new ArrayList<>();
+        Iterator<Student> enrollit = enrolled.iterator();
+        for(int i = 0; i < enrolled.size(); i++) {
+            enrolledarrlist.add(enrollit.next());
+        }
+        Collections.sort(enrolledarrlist);
+        return enrolledarrlist;
     }
 
     public String toString() {
-        return null;
+        String temp = String.format(formatting, getDepartment(), getNumber(), getCapacity(), getDescription());
+        return temp;
     }
 }
 
