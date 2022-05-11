@@ -39,6 +39,9 @@ public class CustomTester {
      */
     @Test
     public void testCompareTo() {
+        Student a = new Student("Jianrui","Zhang","A16878087");
+        Student b = new Student("Jianrui","Zhang","A16878087");
+        assertEquals(0,a.compareTo(b));
 
     }
 
@@ -48,6 +51,13 @@ public class CustomTester {
      */
     @Test
     public void testEnroll() {
+        Course coursea = new Course("CSE","11","Introduction",0);
+        Student a = new Student("Jianrui","Zhang","A16878087");
+        coursea.enrolled = new HashSet<>();
+        assertEquals(0,coursea.enrolled.size());
+        assertTrue(!coursea.enroll(a));
+        assertTrue(!coursea.enrolled.contains(a));
+  
 
     }
 
@@ -56,6 +66,7 @@ public class CustomTester {
      */
     @Test
     public void testUnenroll() {
+
 
     }
 

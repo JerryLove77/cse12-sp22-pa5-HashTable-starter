@@ -48,9 +48,8 @@ public class Course {
         if(student == null) {
             throw new IllegalArgumentException();
         }
-        if(isFull() == false) {
-            enrolled.add(student);
-            return true;
+        if(capacity > getEnrolledCount()) {
+            return enrolled.add(student);
         }
         else{
             return false;
@@ -82,7 +81,7 @@ public class Course {
     }
 
     public int getEnrolledCount() {
-        return enrolled.size();
+        return this.enrolled.size();
     }
 
     public int getAvailableSeats() {
