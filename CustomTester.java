@@ -30,7 +30,7 @@ public class CustomTester {
     public void testEquals() {
         Student a = new Student("Jianrui","Zhang","A16878087");
         Student b = new Student("Jerry","Zhang","A16878087");
-        assertTrue("They are not same",!a.equals(b));
+        assertTrue(!a.equals(b));
 
     }
 
@@ -64,8 +64,11 @@ public class CustomTester {
     /**
      * Test the unenroll method when [TODO]
      */
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     public void testUnenroll() {
+        Student nullstu = null;
+        Course coursea = new Course("CSE","11","Introduction",0);
+        coursea.unenroll(nullstu);
 
 
     }
@@ -75,15 +78,16 @@ public class CustomTester {
      */
     @Test
     public void testGetRoster() {
-
     }
+    
 
     // ----------------Sanctuary class----------------
     /**
      * Test the constructor when [TODO]
      */
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     public void testSanctuaryConstructor() {
+        Sanctuary a = new Sanctuary(-1, -1);
 
     }
 

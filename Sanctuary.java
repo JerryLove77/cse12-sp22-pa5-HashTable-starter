@@ -55,18 +55,25 @@ public class Sanctuary {
             throw new IllegalArgumentException();
         }
         int numRescue;
-        boolean contains = sanctuary.containsKey(species);
-        if (this.getTotalSpecies() >= this.maxSpecies) return num; // if no any space
+        if (this.getTotalSpecies() >= this.maxSpecies) {
+            return num;
+         } // if no any space
         if (num + this.getTotalAnimals() > this.maxAnimals){ // if no enough space 
             numRescue = this.maxAnimals - this.getTotalAnimals();
-            if (contains) this.sanctuary.replace(species, this.sanctuary.get(species) + numRescue);
+            if (sanctuary.containsKey(species)) {
+                this.sanctuary.replace(species, this.sanctuary.get(species), this.sanctuary.get(species)+numRescue);
+            }
             else {
                 sanctuary.put(species, numRescue);
             }
             return num - numRescue;
         }
-        if (contains) this.sanctuary.replace(species, this.sanctuary.get(species) + num); // if good to take all
-        else sanctuary.put(species, num);
+        if (sanctuary.containsKey(species)){
+            this.sanctuary.replace(species, this.sanctuary.get(species) + num);
+        }  // if good to take all
+        else{
+            sanctuary.put(species, num);
+        }
         return 0;
 
     }
