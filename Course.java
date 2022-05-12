@@ -14,7 +14,7 @@ public class Course {
 
     public Course(String department, String number, String description, 
         int capacity){
-            if(capacity < 0){
+            if(capacity <= 0){
                 throw new IllegalArgumentException();
             }
             if(department == null|| number == null
@@ -89,7 +89,7 @@ public class Course {
     }
 
     public HashSet<Student> getStudents() {
-        return null;
+        return (HashSet<Student>) enrolled.clone();
     }
 
     public ArrayList<Student> getRoster() {

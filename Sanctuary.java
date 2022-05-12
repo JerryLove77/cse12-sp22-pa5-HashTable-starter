@@ -39,38 +39,41 @@ public class Sanctuary {
     }
     
     public int getTotalSpecies() {
-        int count = 0;
-        Set<String> speSet = sanctuary.keySet();
-        for(String species : speSet){
-            count += sanctuary.get(species);
-        }
-        return count;
+        return sanctuary.size();
     }
 
     public int rescue(String species, int num) {
-        if(species == null){
+        if(species == null || num < 0){
             throw new IllegalArgumentException();
         }
-        if(num <= 0){
-            throw new IllegalArgumentException();
-        }
+
         int numRescue;
-        if (this.getTotalSpecies() >= this.maxSpecies) {
+
+        if (this.getTotalSpecies() >= this.maxSpecies || this.getTotalAnimals() >= this.maxAnimals) {
             return num;
          } // if no any space
+
         if (num + this.getTotalAnimals() > this.maxAnimals){ // if no enough space 
             numRescue = this.maxAnimals - this.getTotalAnimals();
             if (sanctuary.containsKey(species)) {
-                this.sanctuary.replace(species, this.sanctuary.get(species), this.sanctuary.get(species)+numRescue);
+                this.sanctuary.replace(species, this.sanctuary.get(species), 
+                this.sanctuary.get(species)+numRescue);
             }
-            else {
+            else if(getTotalSpecies() > maxSpecies ){
+                return num;
+            }
+            
                 sanctuary.put(species, numRescue);
-            }
-            return num - numRescue;
+                return num - numRescue;
+
         }
+
         if (sanctuary.containsKey(species)){
             this.sanctuary.replace(species, this.sanctuary.get(species) + num);
-        }  // if good to take all
+        }
+        else if(getTotalSpecies() +1 > maxSpecies ){
+            return num;
+        }
         else{
             sanctuary.put(species, num);
         }

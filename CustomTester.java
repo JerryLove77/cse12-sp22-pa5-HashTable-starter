@@ -1,10 +1,9 @@
 /**
  * TODO: Add your file header
- * Name:
- * ID:
- * Email:
- * Sources used: Put "None" if you did not have any external help
- * Some example of sources used would be Tutors, Zybooks, and Lecture Slides
+ * Name: Jianrui Zhang
+ * ID: A16878087
+ * Email: Jiz145@ucsd.edu
+ * Sources used: None
  * 
  * 2-4 sentence file description here
  */
@@ -21,6 +20,23 @@ import org.junit.*;
  * does not take into account.
  */
 public class CustomTester {
+    private final int INVALID = -1;
+    private final int TENANIMALS = 10;
+    private final int TWOSPECIES = 2;
+    private final int NUM = 20;
+    private final String CAT = "cat";
+    private final String DOG = "dog";
+    private final String FIRSTNAME1 = "Jianrui";
+    private final String FIRSTNAME2 = "Jerry";
+    private final String LASTNAME = "Zhang";
+    private final String PID = "A16878087";
+    private final String DEPARTMENT  = "CSE";
+    private final String NUMBER = "11";
+    private final String DESCRIPTION = "Introduction";
+    private final int CAPACITY = 1;
+    private final int TEN = 10;
+    private final int SIX = 6;
+    private final int FOUR = 4;
 
     // ----------------Student class----------------
     /**
@@ -28,8 +44,8 @@ public class CustomTester {
      */
     @Test
     public void testEquals() {
-        Student a = new Student("Jianrui","Zhang","A16878087");
-        Student b = new Student("Jerry","Zhang","A16878087");
+        Student a = new Student(FIRSTNAME1,LASTNAME,PID);
+        Student b = new Student(FIRSTNAME2,LASTNAME,PID);
         assertTrue(!a.equals(b));
 
     }
@@ -39,8 +55,8 @@ public class CustomTester {
      */
     @Test
     public void testCompareTo() {
-        Student a = new Student("Jianrui","Zhang","A16878087");
-        Student b = new Student("Jianrui","Zhang","A16878087");
+        Student a = new Student(FIRSTNAME1,LASTNAME,PID);
+        Student b = new Student(FIRSTNAME1,LASTNAME,PID);
         assertEquals(0,a.compareTo(b));
 
     }
@@ -51,23 +67,23 @@ public class CustomTester {
      */
     @Test
     public void testEnroll() {
-        Course coursea = new Course("CSE","11","Introduction",0);
-        Student a = new Student("Jianrui","Zhang","A16878087");
+        Course coursea = new Course(DEPARTMENT,NUMBER,DESCRIPTION,CAPACITY);
+        Student a = new Student(FIRSTNAME1,LASTNAME,PID);
+        Student b = new Student(FIRSTNAME2,LASTNAME,PID);
         coursea.enrolled = new HashSet<>();
-        assertEquals(0,coursea.enrolled.size());
-        assertTrue(!coursea.enroll(a));
-        assertTrue(!coursea.enrolled.contains(a));
-  
-
+        coursea.enroll(a);
+        assertEquals(1,coursea.enrolled.size());
+        assertTrue(!coursea.enroll(b));
+        assertTrue(!coursea.enrolled.contains(b));
     }
 
     /**
-     * Test the unenroll method when [TODO]
+     * Test the unenroll method when student is null
      */
     @Test(expected = IllegalArgumentException.class)
     public void testUnenroll() {
         Student nullstu = null;
-        Course coursea = new Course("CSE","11","Introduction",0);
+        Course coursea = new Course(DEPARTMENT,NUMBER,DESCRIPTION,CAPACITY);
         coursea.unenroll(nullstu);
 
 
@@ -87,7 +103,7 @@ public class CustomTester {
      */
     @Test(expected = IllegalArgumentException.class)
     public void testSanctuaryConstructor() {
-        Sanctuary a = new Sanctuary(-1, -1);
+        Sanctuary a = new Sanctuary(INVALID, INVALID);
 
     }
 
@@ -96,8 +112,8 @@ public class CustomTester {
      */
     @Test
     public void testRescueTestOne(){
-        Sanctuary a = new Sanctuary(10, 2);
-        assertEquals(10,a.rescue("cat", 20));
+        Sanctuary a = new Sanctuary(TENANIMALS, TWOSPECIES);
+        assertEquals(TEN,a.rescue(CAT, NUM));
     }
 
     /**
@@ -105,9 +121,9 @@ public class CustomTester {
      */
     @Test
     public void testRescueTestTwo(){
-        Sanctuary a = new Sanctuary(10, 2);
-        a.rescue("cat",10);
-        assertEquals(20,a.rescue("dog",20));
+        Sanctuary a = new Sanctuary(TENANIMALS, TWOSPECIES);
+        a.rescue(CAT,TEN);
+        assertEquals(NUM,a.rescue(DOG,NUM));
     }
 
     /**
@@ -115,11 +131,11 @@ public class CustomTester {
      */
     @Test
     public void testReleaseTestOne(){
-        Sanctuary a = new Sanctuary(10, 2);
-        a.sanctuary.put("cat",6);
-        a.sanctuary.put("dog",4);
-        a.release("cat", 5);
-        assertEquals(1,a.getNum("cat"));
+        Sanctuary a = new Sanctuary(TENANIMALS, TWOSPECIES);
+        a.sanctuary.put(CAT,SIX);
+        a.sanctuary.put(DOG,FOUR);
+        a.release(CAT, SIX);
+        assertEquals(0,a.getNum(CAT));
     }
 
     /**
@@ -127,9 +143,9 @@ public class CustomTester {
      */
     @Test(expected = IllegalArgumentException.class)
     public void testReleaseTestTwo(){
-        Sanctuary a = new Sanctuary(10, 2);
-        a.sanctuary.put("cat",6);
-        a.release("dog",4);
+        Sanctuary a = new Sanctuary(TENANIMALS, TWOSPECIES);
+        a.sanctuary.put(CAT,SIX);
+        a.release(DOG,SIX);
     
     }
 }
