@@ -51,7 +51,7 @@ public class Sanctuary {
     }
 
     public int rescue(String species, int num) {
-        if(species == null || num < 0){
+        if(species == null || num <= 0){
             throw new IllegalArgumentException();
         }
 

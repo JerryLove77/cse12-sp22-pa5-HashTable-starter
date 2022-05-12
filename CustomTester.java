@@ -98,9 +98,10 @@ public class CustomTester {
         Student a = new Student(FIRSTNAME1,LASTNAME,PID);
         Student b = new Student(FIRSTNAME2,LASTNAME,PID);
         Course coursea = new Course(DEPARTMENT,NUMBER,DESCRIPTION,CAPACITY2);
+        coursea.enrolled = new HashSet<>();
         coursea.enrolled.add(a);
         coursea.enrolled.add(b);
-        ArrayList<Student> set = new ArrayList<>();
+        List<Student> set = new ArrayList<>();
         set.add(a);
         set.add(b);
         assertEquals(set,coursea.getRoster());

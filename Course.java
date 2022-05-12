@@ -57,7 +57,8 @@ public class Course {
         if(student == null) {
             throw new IllegalArgumentException();
         }
-        if(capacity > getEnrolledCount()) {
+
+        if(capacity > this.enrolled.size()) {
             return enrolled.add(student);
         }
         else{

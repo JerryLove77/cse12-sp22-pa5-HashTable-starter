@@ -82,9 +82,9 @@ public class Student implements Comparable<Student> {
      */
     @Override
     public int compareTo(Student o) {
-        int last = o.lastName.compareTo(this.lastName);
-        int first = o.firstName.compareTo(this.firstName);
-        int PID = o.PID.compareTo(this.PID);
+        int last = this.lastName.compareTo(o.lastName);
+        int first = this.firstName.compareTo(o.firstName);
+        int PID = this.PID.compareTo(o.PID);
         if(last != 0) {
             return last; 
         }
