@@ -37,6 +37,7 @@ public class CustomTester {
     private final int TEN = 10;
     private final int SIX = 6;
     private final int FOUR = 4;
+    private final int CAPACITY2 = 2;
 
     // ----------------Student class----------------
     /**
@@ -90,10 +91,19 @@ public class CustomTester {
     }
 
     /**
-     * Test the getRoster method when [TODO]
+     * Test the getRoster method when 
      */
     @Test
     public void testGetRoster() {
+        Student a = new Student(FIRSTNAME1,LASTNAME,PID);
+        Student b = new Student(FIRSTNAME2,LASTNAME,PID);
+        Course coursea = new Course(DEPARTMENT,NUMBER,DESCRIPTION,CAPACITY2);
+        coursea.enrolled.add(a);
+        coursea.enrolled.add(b);
+        ArrayList<Student> set = new ArrayList<>();
+        set.add(a);
+        set.add(b);
+        assertEquals(set,coursea.getRoster());
     }
     
 

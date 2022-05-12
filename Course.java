@@ -1,3 +1,12 @@
+/**
+ * TODO: Add your file header
+ * Name: Jianrui Zhang
+ * ID: A16878087
+ * Email: Jiz145@ucsd.edu
+ * Sources used: None
+ * 
+ * 2-4 sentence file description here
+ */
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
