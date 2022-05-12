@@ -78,7 +78,12 @@ public class Student implements Comparable<Student> {
     }
 
     /**
-     * @param o 
+     * @param o (the student object that will be compared)
+     * @return (0 if all the instance variables are equivalent;
+     *          a negative value if the current object 
+     *          lexicographically comes before Student o;
+     *          a positive value if the current object 
+     *          lexicographically comes after Student o. ) 
      */
     @Override
     public int compareTo(Student o) {

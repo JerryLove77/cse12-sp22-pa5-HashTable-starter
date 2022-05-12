@@ -1,19 +1,21 @@
 /**
- * TODO: Add your file header
  * Name: Jianrui Zhang
  * ID: A16878087
  * Email: Jiz145@ucsd.edu
  * Sources used: None
  * 
- * 2-4 sentence file description here
+ * CustomTester is a test file to test methods in 
+ * Student class,Course class, Sanctuary class.
+ * These test case are not included in public tester
  */
 
 import java.util.*;
 import static org.junit.Assert.*;
 import org.junit.*;
 
-/**
- * TODO: Add your class header
+/** 
+ * test methods in Student class,Course class, Sanctuary class.
+ * These test case are not included in public tester
  * 
  * IMPORTANT: Do not change the method names and points are awarded
  * only if your test cases cover cases that the public tester file
