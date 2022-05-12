@@ -93,12 +93,16 @@ public class Course {
     }
 
     public ArrayList<Student> getRoster() {
-        ArrayList<Student> rtnList = new ArrayList<>();
-        for(Student i: enrolled){
-            rtnList.add(i);
+        ArrayList<Student> enrolledarrlist = new ArrayList<>();
+        //creates an iterator 
+        Iterator<Student> enrollit = enrolled.iterator();
+        for(int i = 0; i < enrolled.size(); i++) {
+            //adds the student to the ArrayList by the iterator
+            enrolledarrlist.add(enrollit.next());
         }
-        Collections.sort(rtnList);
-        return rtnList;
+        //sorts the ArrayList
+        Collections.sort(enrolledarrlist);
+        return enrolledarrlist;
     }
 
     public String toString() {
