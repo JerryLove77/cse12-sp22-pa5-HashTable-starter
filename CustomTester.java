@@ -40,7 +40,7 @@ public class CustomTester {
 
     // ----------------Student class----------------
     /**
-     * Test the equals method when [TODO: fill in a possible edge case here]
+     * Test the equals method when two students are not same
      */
     @Test
     public void testEquals() {
@@ -51,7 +51,7 @@ public class CustomTester {
     }
 
     /**
-     * Test the compareTo method when [TODO]
+     * Test the compareTo method when two students are same
      */
     @Test
     public void testCompareTo() {
@@ -63,7 +63,7 @@ public class CustomTester {
 
     // ----------------Course class----------------
     /**
-     * Test the enroll method when [TODO]
+     * Test the enroll method when capacity is full
      */
     @Test
     public void testEnroll() {
@@ -99,7 +99,7 @@ public class CustomTester {
 
     // ----------------Sanctuary class----------------
     /**
-     * Test the constructor when [TODO]
+     * Test the constructor when maxanimals and maxspecies are invalid
      */
     @Test(expected = IllegalArgumentException.class)
     public void testSanctuaryConstructor() {
@@ -108,7 +108,7 @@ public class CustomTester {
     }
 
     /**
-     * Test the rescue method when [not enough space]
+     * Test the rescue method when there is not enough space
      */
     @Test
     public void testRescueTestOne(){
@@ -117,7 +117,7 @@ public class CustomTester {
     }
 
     /**
-     * Test the rescue method when [No space]
+     * Test the rescue method when there is No space
      */
     @Test
     public void testRescueTestTwo(){
@@ -127,7 +127,7 @@ public class CustomTester {
     }
 
     /**
-     * Test the release method when [TODO]
+     * Test the release method when call release twice
      */
     @Test
     public void testReleaseTestOne(){
@@ -136,10 +136,15 @@ public class CustomTester {
         a.sanctuary.put(DOG,FOUR);
         a.release(CAT, SIX);
         assertEquals(0,a.getNum(CAT));
+        assertEquals(FOUR, a.getNum(DOG));
+        a.release(DOG,FOUR);
+        assertEquals(0,a.getNum(CAT));
+        assertEquals(0, a.getNum(DOG));
     }
 
     /**
-     * Test the release method when [TODO:fill in another one here]
+     * Test the release method 
+     * when num is greater than total amout of that species
      */
     @Test(expected = IllegalArgumentException.class)
     public void testReleaseTestTwo(){
