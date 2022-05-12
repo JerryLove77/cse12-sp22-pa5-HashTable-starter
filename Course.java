@@ -43,11 +43,12 @@ public class Course {
             || description == null){
                 throw new IllegalArgumentException();
             }
-
+            this.enrolled = new HashSet<>();
             this.capacity = capacity;
             this.department = department;
             this.number = number;
             this.description = description;
+           
         }
 
     /** @return department*/

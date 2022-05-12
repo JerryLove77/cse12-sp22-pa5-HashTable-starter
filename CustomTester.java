@@ -73,7 +73,7 @@ public class CustomTester {
         Course coursea = new Course(DEPARTMENT,NUMBER,DESCRIPTION,CAPACITY);
         Student a = new Student(FIRSTNAME1,LASTNAME,PID);
         Student b = new Student(FIRSTNAME2,LASTNAME,PID);
-        coursea.enrolled = new HashSet<>();
+        
         coursea.enroll(a);
         assertEquals(1,coursea.enrolled.size());
         assertTrue(!coursea.enroll(b));
@@ -97,12 +97,11 @@ public class CustomTester {
      */
     @Test
     public void testGetRoster() {
-        Student a = new Student(FIRSTNAME1,LASTNAME,PID);
-        Student b = new Student(FIRSTNAME2,LASTNAME,PID);
+        Student a = new Student(FIRSTNAME2,LASTNAME,PID);
+        Student b = new Student(FIRSTNAME1,LASTNAME,PID);
         Course coursea = new Course(DEPARTMENT,NUMBER,DESCRIPTION,CAPACITY2);
-        coursea.enrolled = new HashSet<>();
-        coursea.enrolled.add(a);
-        coursea.enrolled.add(b);
+        coursea.enroll(a);
+        coursea.enroll(b);
         List<Student> set = new ArrayList<>();
         set.add(a);
         set.add(b);

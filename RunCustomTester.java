@@ -77,14 +77,13 @@ public class RunCustomTester {
     public void testGetRoster() {
         Course C1 = new Course("Math", "109",
                 "Mathematical Reasoning", 40);
-        C1.enrolled = new HashSet<>();
         C1.enrolled.add(S1);
         C1.enrolled.add(S2);
         C1.enrolled.add(S3);
         List<Student> s = new ArrayList<>();
-        s.add(S3);
-        s.add(S2);
         s.add(S1);
+        s.add(S2);
+        s.add(S3);
         assertEquals(s,C1.getRoster());
         
     }
