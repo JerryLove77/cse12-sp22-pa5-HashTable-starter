@@ -92,19 +92,22 @@ public class CustomTester {
     }
 
     /**
-     * Test the rescue method when [TODO]
+     * Test the rescue method when [not enough space]
      */
     @Test
     public void testRescueTestOne(){
-
+        Sanctuary a = new Sanctuary(10, 2);
+        assertEquals(10,a.rescue("cat", 20));
     }
 
     /**
-     * Test the rescue method when [TODO: fill in another one here]
+     * Test the rescue method when [No space]
      */
     @Test
     public void testRescueTestTwo(){
-
+        Sanctuary a = new Sanctuary(10, 2);
+        a.rescue("cat",10);
+        assertEquals(20,a.rescue("dog",20));
     }
 
     /**
@@ -112,15 +115,22 @@ public class CustomTester {
      */
     @Test
     public void testReleaseTestOne(){
-
+        Sanctuary a = new Sanctuary(10, 2);
+        a.sanctuary.put("cat",6);
+        a.sanctuary.put("dog",4);
+        a.release("cat", 5);
+        assertEquals(1,a.getNum("cat"));
     }
 
     /**
      * Test the release method when [TODO:fill in another one here]
      */
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     public void testReleaseTestTwo(){
-
+        Sanctuary a = new Sanctuary(10, 2);
+        a.sanctuary.put("cat",6);
+        a.release("dog",4);
+    
     }
 }
 
