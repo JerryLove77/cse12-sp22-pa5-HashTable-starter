@@ -56,20 +56,18 @@ public class Student implements Comparable<Student> {
      */
     @Override
     public boolean equals(Object o) {
-        if(o instanceof Student != true){
+        if (o.getClass() != this.getClass()){
             return false;
         }
-        Student temp = (Student) o;
-        if(!temp.getFirstName().equals(this.firstName)){
-            return false;
+        Student other = (Student) o;
+        String[] thisCheckList = {this.getFirstName(), this.getLastName(), this.getPID()};
+        String[] otherCheckList = {other.getFirstName(), other.getLastName(), other.getPID()};
+        for (int i = 0; i < thisCheckList.length; i++){
+            if (! thisCheckList[i].equals(otherCheckList[i])){
+                return false;
+            }
         }
-        if(!temp.getLastName().equals(this.lastName)){
-            return false;
-        }
-        if(!temp.getPID().equals(this.PID)){
-            return false;
-        }
-        return true;
+        return true; 
     }
 
     /**
