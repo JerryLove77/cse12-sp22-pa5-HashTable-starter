@@ -26,6 +26,9 @@ public class Student implements Comparable<Student> {
      * @param PID (the PID of student)
      */
     public Student(String firstName, String lastName, String PID) {
+        if(firstName == null || lastName == null || PID == null){
+            throw new IllegalArgumentException();
+        }
         this.firstName = firstName;
         this.lastName = lastName;
         this.PID = PID;
