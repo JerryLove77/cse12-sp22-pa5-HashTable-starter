@@ -59,9 +59,6 @@ public class Student implements Comparable<Student> {
         if(o instanceof Student != true){
             return false;
         }
-        if(o == null){
-            return false;
-        }
         Student temp = (Student) o;
         if(!temp.getFirstName().equals(this.firstName)){
             return false;
