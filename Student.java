@@ -56,6 +56,9 @@ public class Student implements Comparable<Student> {
      */
     @Override
     public boolean equals(Object o) {
+        if(o instanceof Student != true){
+            return false;
+        }
         if(o == null){
             return false;
         }
