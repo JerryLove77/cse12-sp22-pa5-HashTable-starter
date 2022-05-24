@@ -64,10 +64,10 @@ public class Sanctuary {
         if (num + this.getTotalAnimals() > this.maxAnimals){ // if no enough space 
             numRescue = this.maxAnimals - this.getTotalAnimals();
             if (sanctuary.containsKey(species)) {
-                this.sanctuary.replace(species, this.sanctuary.get(species), 
+                this.sanctuary.replace(species,
                 this.sanctuary.get(species)+numRescue);
             }
-            else if(getTotalSpecies() > maxSpecies ){
+            else if(getTotalSpecies() +1 > maxSpecies ){
                 return num;
             }
             
@@ -77,7 +77,8 @@ public class Sanctuary {
         }
 
         if (sanctuary.containsKey(species)){
-            this.sanctuary.replace(species, this.sanctuary.get(species) + num);
+            this.sanctuary.replace(species, 
+            this.sanctuary.get(species) + num);
         }
         else if(getTotalSpecies() +1 > maxSpecies ){
             return num;
